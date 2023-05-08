@@ -1,4 +1,4 @@
-package com.leomarkpaway.numbertowordconverter.view
+package com.leomarkpaway.numbertowordconverter.presentation.ui
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,7 +6,7 @@ import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.leomarkpaway.numbertowordconverter.databinding.ActivityMainBinding
-import com.leomarkpaway.numbertowordconverter.viewmodel.MainActivityViewModel
+import com.leomarkpaway.numbertowordconverter.presentation.viewmodel.MainActivityViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

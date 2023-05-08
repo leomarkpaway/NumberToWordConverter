@@ -1,4 +1,4 @@
-package com.leomarkpaway.numbertowordconverter.viewmodel
+package com.leomarkpaway.numbertowordconverter.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.leomarkpaway.numbertowordconverter.util.convertNumberToWords
