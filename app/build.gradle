@@ -5,6 +5,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+apply from: "dependencies.gradle"
+
 android {
     namespace 'com.leomarkpaway.numbertowordconverter'
     compileSdk 33
@@ -48,7 +50,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // flow
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
+    implementation coroutines.coroutines_android
+    implementation coroutines.coroutines_core
+
+    // hilt
+    implementation hilt.android
+    kapt hilt.compiler
 
 }
