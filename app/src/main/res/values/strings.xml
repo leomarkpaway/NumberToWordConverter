@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NumberToWordConverter</string>
+    <string name="enter_number">Enter number</string>
+</resources>

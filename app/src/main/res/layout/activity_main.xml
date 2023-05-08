@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_number"
+            android:layout_width="@dimen/spacing_0"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_24"
+            app:layout_constraintBottom_toTopOf="@+id/til_number"
+            app:layout_constraintEnd_toEndOf="@+id/til_number"
+            app:layout_constraintStart_toStartOf="@+id/til_number"
+            tools:text="one hundred" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_number"
+            android:layout_width="@dimen/spacing_0"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
