@@ -1,25 +1,31 @@
 package com.leomarkpaway.numbertowordconverter.presentation.ui
 
-import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.lifecycleScope
+import com.leomarkpaway.numbertowordconverter.R
+import com.leomarkpaway.numbertowordconverter.common.base.BaseActivity
 import com.leomarkpaway.numbertowordconverter.databinding.ActivityMainBinding
 import com.leomarkpaway.numbertowordconverter.presentation.viewmodel.MainActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val viewModel = MainActivityViewModel()
+    override val layoutId = R.layout.activity_main
+    override val viewModel: MainActivityViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun initViews() {
+        super.initViews()
         getUserInput()
+    }
+
+    override fun subscribe() {
+        super.subscribe()
         displayConvertedNumber()
     }
 
@@ -27,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         edtNumber.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 lifecycleScope.launch {
-                    viewModel.updateWordNumber(s.toString().toIntOrNull())
+                    s.toString().toIntOrNull()?.let { viewModel.updateWordNumber(it) }
                 }
             }
 
