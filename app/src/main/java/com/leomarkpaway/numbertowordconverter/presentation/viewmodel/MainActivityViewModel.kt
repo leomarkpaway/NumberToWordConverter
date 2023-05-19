@@ -1,12 +1,13 @@
 package com.leomarkpaway.numbertowordconverter.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.leomarkpaway.numbertowordconverter.common.base.BaseViewModel
 import com.leomarkpaway.numbertowordconverter.domain.usecase.NumberToTextConverterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,9 +19,7 @@ class MainActivityViewModel @Inject constructor(
     val wordNumber = _wordNumber.asStateFlow()
 
     suspend fun updateWordNumber(number: Int) {
-        numberToTextConverterUseCase(number).onEach {
-            _wordNumber.emit(it)
-        }.launchIn(viewModelScope)
+        numberToTextConverterUseCase(number).map { _wordNumber.emit(it) }.launchIn(viewModelScope)
     }
 
 }

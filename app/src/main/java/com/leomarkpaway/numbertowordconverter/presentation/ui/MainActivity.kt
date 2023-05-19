@@ -3,7 +3,6 @@ package com.leomarkpaway.numbertowordconverter.presentation.ui
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.lifecycleScope
 import com.leomarkpaway.numbertowordconverter.R
 import com.leomarkpaway.numbertowordconverter.common.base.BaseActivity
