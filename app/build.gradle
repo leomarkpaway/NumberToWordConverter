@@ -57,4 +57,14 @@ dependencies {
     implementation hilt.android
     kapt hilt.compiler
 
+    // lifecycle
+    implementation lifecycle.runtime
+    implementation lifecycle.view_model
+    kapt lifecycle.compiler
+
+    // navigation
+    implementation navigation.fragment
+    implementation navigation.ui
+
+
 }
